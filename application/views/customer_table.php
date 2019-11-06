@@ -3,36 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('dist/_partials/header');
 ?>
 
-<script type="text/javascript">
-    $(document).ready(function() {
 
-      $('.detail').click(function(){
-          
-          var id = $(this).attr('id'); //get the attribute value
-          
-          $.ajax({
-              url : "<?php echo base_url();?>Customer/detail",
-              data:{id : id},
-              method:'GET',
-              dataType:'json',
-              success:function(data) {
-                $('#customer_name').html(data); //hold the response in id and show on popup
-                $('#customer_email').html(data);
-                $('#customer_phone').html(data);
-                $('#customer_address').html(data);
-                $('#customer_status').html(data);
-                $('#updated_at').html(data);
-                $('#add_data_Modals').modal('show');
-
-            }
-              error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error get data from ajax');
-        }
-          });
-      });
-    });
-</script>
 
       <!-- Main Content -->
       
@@ -73,7 +44,7 @@ $this->load->view('dist/_partials/header');
                   </div>
         
                     <div class="table-responsive">
-                      <table id="ctable"class="table table-striped">
+                      <table class="table table-striped">
                           <div class="custom-checkbox custom-control"></div>
                     </th>
                         <tr>
@@ -146,13 +117,6 @@ $this->load->view('dist/_partials/header');
  </div> 
 
 
-<script type="text/javascript">
-  
-$(document).ready( function () {
-    $('#ctable').DataTable();
-} );
-  
-</script>
 
 
 
